@@ -1,0 +1,9 @@
+<%= form_for(@tarea) do |t| %>
+	<div class="form-group">
+		<label>Titulo</label><%= t.text_field :titulo, class:"form-control" %>
+	</div>
+	<div class="form-group">
+		<label>Descripcion</label><%= t.text_area :descripcion, class:"form-control" %>
+	</div>
+	<%= t.submit "Insertar", class:"btn btn-warning" %>
+<% end %>
