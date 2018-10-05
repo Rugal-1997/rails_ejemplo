@@ -1,6 +1,10 @@
 <h1>Mis Tareas</h1>
 <ul>
-	<% @tareas.each do |t| %>
-	<li><%= t.titulo %></li>
+	<% @tareas.each do |tarea| %>
+	<li><%= tarea.id %> - <%= tarea.titulo %> - <%= tarea.descripcion %> -
+		<%= link_to "Ver", tarea, class:"btn btn-danger"%> - <!-- controller: "tareas", action: "show", id: (tarea.id) --> 
+		<%= link_to "Editar", edit_tarea_path(tarea), class:"btn btn-info" %> - <!-- controller: "tareas", action: "edit", id: (tarea.id) --> 
+		<%= link_to "Eliminar", tarea, method: :delete, class:"btn btn-warning" %> <!-- controller: "tareas", action: "delete", id: (tarea.id) --> 
+	</li>
 	<% end %>
 </ul>

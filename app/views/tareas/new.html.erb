@@ -1,14 +1,3 @@
-<% @tarea.errors.full_messages.each do |msj| %>
-	<div class="alert alert-info" role="alert">
-		<%= msj %>
-	</div>
-<% end %>
-<%= form_for(@tarea) do |tr| %>
-	<div class="form-group">
-		<label>Titulo</label><%= tr.text_field :titulo, class:"form-control", required:"" %>
-	</div>
-	<div class="form-group">
-		<label>Descripcion</label><%= tr.text_area :descripcion, class:"form-control", required:"" %>
-	</div>
-	<%= tr.submit "Insertar", class:"btn btn-info" %>
-<% end %>
+<h1>Crear Tarea</h1>
+<%= render "formulario", boton: "Crear", color_boton: "success" %>
+	
