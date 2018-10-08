@@ -1,5 +1,6 @@
 class TareasController < ApplicationController
-  before_action :set_tarea, except: [:index,:new,:create] # collbacks
+  before_action :authenticate_usuario!, except: [:index,:show]
+  before_action :set_tarea, except: [:index,:new,:create] # collbacks  
   def index
   	@tareas = Tarea.all
   	# Select * from tareas 
@@ -10,6 +11,7 @@ class TareasController < ApplicationController
   end
   def create
   	@tarea = Tarea.new(tareas_params) #(titulo: params[:tarea][:titulo], descripcion: params[:tarea][:descripcion])
+    @tarea.usuario = current_usuario
     if @tarea.save
        redirect_to @tarea # ir a misma variable (controller: "tareas", action: "show")
     else

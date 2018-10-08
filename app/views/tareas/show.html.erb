@@ -4,3 +4,6 @@
 		<p class="card-text"><%= @tarea.descripcion %></p>
 	</div>
 </div>
+<% unless @tarea.usuario.nil? %>
+<p><b>Escrito por:</b> <%= @tarea.usuario.email %></p>
+<% end %>
