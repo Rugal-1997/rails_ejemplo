@@ -20,6 +20,7 @@ class TareasController < ApplicationController
     # ingresar datos en la base de datos insert into()
   end
   def show
+    @comentario = Comentario.new
     # busqueda por id en base de datos    
   end
   def edit

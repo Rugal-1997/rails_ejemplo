@@ -7,3 +7,12 @@
 <% unless @tarea.usuario.nil? %>
 <p><b>Escrito por:</b> <%= @tarea.usuario.email %></p>
 <% end %>
+<h3>Agregar Comentarios</h3>
+<%= render "comentarios/form"%>
+<h3>Comentarios</h3>
+<ul>
+	<% @tarea.comentarios.each do |cmt| %>
+	<li><%= cmt.contenido %></li>
+	<% end %>
+</ul>
+
