@@ -13,6 +13,7 @@ class TareasController < ApplicationController
   	@tarea = Tarea.new(tareas_params) #(titulo: params[:tarea][:titulo], descripcion: params[:tarea][:descripcion])
     @tarea.usuario = current_usuario
     if @tarea.save
+       CorreosMailer.notificacion(@tarea).deliver_now
        redirect_to @tarea # ir a misma variable (controller: "tareas", action: "show")
     else
        render :new
